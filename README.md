@@ -7,4 +7,5 @@ Date | velocityData | angleList | accelerationList | polylineList | drivingSumma
 --- | --- | --- | --- | --- | --- | --- | --- |
 
 all values are of "TEXT" type
+
 the calculations are done automatically for now
