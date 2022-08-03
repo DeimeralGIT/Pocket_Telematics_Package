@@ -32,7 +32,7 @@ void positionUpdate(Position _position) {
           FlutterBackground.initialize(
             androidConfig: const FlutterBackgroundAndroidConfig(
               notificationTitle: "Driving detected",
-              notificationText: "Driving tracking for CCC insurance",
+              notificationText: "Driving tracking",
               notificationImportance: AndroidNotificationImportance.Default,
             ),
           ).then(
