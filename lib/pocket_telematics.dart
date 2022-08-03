@@ -10,7 +10,6 @@ import 'package:pocket_telematics/Methods/position_update.dart';
 import 'package:pocket_telematics/global_values.dart';
 import 'package:sqflite/sqflite.dart';
 
-/// A Calculator.
 class PocketTelematics {
   requestService() async {
     await Geolocator.requestPermission();
@@ -27,7 +26,7 @@ class PocketTelematics {
     FlutterBackground.initialize(
       androidConfig: const FlutterBackgroundAndroidConfig(
         notificationTitle: "Not driving",
-        notificationText: "Driving tracking for CCC insurance",
+        notificationText: "Driving tracking",
         notificationImportance: AndroidNotificationImportance.Default,
       ),
     ).then((result) => FlutterBackground.enableBackgroundExecution().then((pass) => backgroundService()));

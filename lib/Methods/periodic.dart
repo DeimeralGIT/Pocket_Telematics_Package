@@ -60,7 +60,7 @@ void periodic() {
       FlutterBackground.initialize(
         androidConfig: const FlutterBackgroundAndroidConfig(
           notificationTitle: "Not driving",
-          notificationText: "Driving tracking for CCC insurance",
+          notificationText: "Driving tracking",
           notificationImportance: AndroidNotificationImportance.Default,
         ),
       ).then(
