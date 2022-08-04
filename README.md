@@ -1,5 +1,5 @@
 # Pocket Telematics Package
-a package that will store driving data, wunning in the background
+a package that will store driving data, running in the background
 
 The stored database looks like this: 
 
