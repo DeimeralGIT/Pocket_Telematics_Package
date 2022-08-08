@@ -45,6 +45,7 @@ class DrivingTrackingModel extends DrivingTrackingEntity {
     return {
       "start_date": startDate,
       "end_date": endDate,
+      "distance": distance,
       "velocity_data": velocityData,
       "angle_list": angleList,
       "acceleration_list": accelerationList,
