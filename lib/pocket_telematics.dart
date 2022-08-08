@@ -9,7 +9,6 @@ import 'package:pocket_telematics/Methods/position_update.dart';
 import 'package:pocket_telematics/global_values.dart';
 
 class PocketTelematics {
-  bool isServiceOn = false;
   requestService() async {
     await Geolocator.requestPermission().then((pass) {
       //initial notification status + request permission
@@ -21,7 +20,6 @@ class PocketTelematics {
         ),
       ).then(
         (result) => FlutterBackground.enableBackgroundExecution().then((pass) {
-          isServiceOn = true;
           //triggers on every GPS location update
           positionStream = Geolocator.getPositionStream(
               locationSettings: const LocationSettings(
@@ -45,6 +43,5 @@ class PocketTelematics {
     try {
       positionStream.cancel();
     } catch (e) {}
-    isServiceOn = false;
   }
 }
