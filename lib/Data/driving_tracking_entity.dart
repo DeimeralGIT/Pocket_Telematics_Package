@@ -6,7 +6,7 @@ class DrivingTrackingEntity {
   final String accelerationList;
   final String polylineList;
   final String drivingSummary;
-  final String bottomInfoText;
+  final String overallStats;
   final String grade;
   DrivingTrackingEntity({
     required this.startDate,
@@ -16,7 +16,7 @@ class DrivingTrackingEntity {
     required this.accelerationList,
     required this.polylineList,
     required this.drivingSummary,
-    required this.bottomInfoText,
+    required this.overallStats,
     required this.grade,
   });
 
@@ -29,7 +29,7 @@ class DrivingTrackingEntity {
         accelerationList,
         polylineList,
         drivingSummary,
-        bottomInfoText,
+        overallStats,
         grade,
       ];
 }
