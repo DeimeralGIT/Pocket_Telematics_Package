@@ -57,6 +57,9 @@ Position position =
 //recording parametres
 bool recordingStarted = false;
 
+//controller for location tracking
+var positionStream;
+
 //velocity will be added to velocity chain if it's > 20
 //every time velocity is < 20 the List is reset
 //once velocity chain reaches length of 6, recording will be triggered

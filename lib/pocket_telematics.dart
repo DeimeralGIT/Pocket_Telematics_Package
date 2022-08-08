@@ -21,7 +21,7 @@ class PocketTelematics {
       ).then(
         (result) => FlutterBackground.enableBackgroundExecution().then((pass) {
           //triggers on every GPS location update
-          Geolocator.getPositionStream(
+          positionStream = Geolocator.getPositionStream(
               locationSettings: const LocationSettings(
             accuracy: LocationAccuracy.bestForNavigation,
           )).listen((position) => positionUpdate(position));
@@ -36,5 +36,12 @@ class PocketTelematics {
         }),
       );
     });
+  }
+
+  terminateService() async {
+    FlutterBackground.disableBackgroundExecution();
+    try {
+      positionStream.cancel();
+    } catch (e) {}
   }
 }
