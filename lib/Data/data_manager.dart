@@ -21,7 +21,9 @@ Future<io.File?> get _localFile async {
 addDrivingData(DrivingTrackingModel saveModel) async {
   final file = await _localFile;
   readDrivingData().then((currentContent) {
-    currentContent.addAll(saveModel.toJson());
+    currentContent.addEntries([
+      MapEntry(saveModel.startDate, saveModel.toJson()),
+    ]);
     file!.writeAsString(json.encode(currentContent));
   });
 }
