@@ -35,11 +35,11 @@ class PocketTelematics {
           });
         }));
   }
-}
 
-terminateService() async {
-  FlutterBackground.disableBackgroundExecution();
-  try {
-    positionStream.cancel();
-  } catch (e) {}
+  terminateService() async {
+    FlutterBackground.disableBackgroundExecution();
+    try {
+      positionStream.cancel();
+    } catch (e) {}
+  }
 }
