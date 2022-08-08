@@ -1,6 +1,6 @@
 import 'package:flutter_background/flutter_background.dart';
 import 'package:pocket_telematics/Data/data_manager.dart';
-import 'package:pocket_telematics/Data/save_model.dart';
+import 'package:pocket_telematics/Data/driving_tracking_model.dart';
 import 'package:pocket_telematics/Methods/reset_function.dart';
 
 import '../global_values.dart';

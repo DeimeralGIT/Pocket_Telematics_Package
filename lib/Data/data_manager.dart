@@ -3,7 +3,7 @@ import 'dart:io' as io;
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
-import 'package:pocket_telematics/Data/save_model.dart';
+import 'package:pocket_telematics/Data/driving_tracking_model.dart';
 
 Future<String> get _localPath async {
   final directory = await getApplicationDocumentsDirectory();

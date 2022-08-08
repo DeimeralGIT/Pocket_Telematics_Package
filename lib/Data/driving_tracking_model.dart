@@ -1,27 +1,28 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:pocket_telematics/Data/driving_tracking_entity.dart';
 
-class DrivingTrackingModel {
-  final String startDate;
-  final String endDate;
-  final String velocityData;
-  final String angleList;
-  final String accelerationList;
-  final String polylineList;
-  final String drivingSummary;
-  final String overallStats;
-  final String grade;
-
+class DrivingTrackingModel extends DrivingTrackingEntity {
   DrivingTrackingModel({
-    required this.startDate,
-    required this.endDate,
-    required this.velocityData,
-    required this.angleList,
-    required this.accelerationList,
-    required this.polylineList,
-    required this.drivingSummary,
-    required this.overallStats,
-    required this.grade,
-  });
+    required startDate,
+    required endDate,
+    required velocityData,
+    required angleList,
+    required accelerationList,
+    required polylineList,
+    required drivingSummary,
+    required overallStats,
+    required grade,
+  }) : super(
+          startDate: startDate,
+          endDate: endDate,
+          velocityData: velocityData,
+          angleList: angleList,
+          accelerationList: accelerationList,
+          polylineList: polylineList,
+          drivingSummary: drivingSummary,
+          overallStats: overallStats,
+          grade: grade,
+        );
 
   factory DrivingTrackingModel.fromJson(Map<String, dynamic> json) {
     return DrivingTrackingModel(
