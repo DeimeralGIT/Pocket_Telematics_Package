@@ -4,12 +4,17 @@ import 'dart:async';
 
 import 'package:flutter_background/flutter_background.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:pocket_telematics/Methods/periodic.dart';
 import 'package:pocket_telematics/Methods/position_update.dart';
 import 'package:pocket_telematics/global_values.dart';
 
 class PocketTelematics {
   requestService() async {
+    Permission permission = Permission.locationAlways
+      ..request().then((pass) {
+        Permission permission = Permission.ignoreBatteryOptimizations..request();
+      });
     //initial notification status + request permission
     FlutterBackground.initialize(
       androidConfig: const FlutterBackgroundAndroidConfig(
