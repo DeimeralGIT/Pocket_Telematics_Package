@@ -1,9 +1,6 @@
-import 'dart:async';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:path/path.dart';
 import 'package:pocket_telematics/Data/save_model.dart';
-import 'package:sqflite/sqflite.dart';
 
 //{[time, position]}
 Set<List<double>> velocityList = {};
@@ -57,13 +54,6 @@ Position initialPosition =
 Position position =
     Position(longitude: 0.0, latitude: 0.0, timestamp: DateTime(2021), accuracy: 0.0, altitude: 0.0, heading: 0.0, speed: 0.0, speedAccuracy: 0.0);
 
-Future<Database> database = getDatabasesPath().then(
-  (path) => openDatabase(join(path, 'data.db'), version: 1, onCreate: (db, version) async {
-    await db.execute(
-        "CREATE TABLE data (date TEXT, velocityData TEXT, angleList TEXT, accelerationList TEXT, polylineList TEXT, drivingSummary TEXT, bottomInfo TEXT, grade TEXT)");
-  }),
-);
-
 //recording parametres
 bool recordingStarted = false;
 
@@ -71,13 +61,15 @@ bool recordingStarted = false;
 //every time velocity is < 20 the List is reset
 //once velocity chain reaches length of 6, recording will be triggered
 List<double> velocityChain = [];
-SaveModel saveModel = SaveModel(
+DrivingTrackingModel saveModel = DrivingTrackingModel(
+  startDate: "",
+  endDate: "",
   velocityData: "",
   angleList: "",
   accelerationList: "",
   polylineList: "",
   drivingSummary: "",
-  bottomInfoText: "",
+  overallStats: "",
   grade: "",
 );
 String bottomInfoText = "";

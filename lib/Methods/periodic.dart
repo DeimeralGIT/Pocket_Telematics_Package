@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter_background/flutter_background.dart';
+import 'package:pocket_telematics/Data/data_manager.dart';
 import 'package:pocket_telematics/Data/save_model.dart';
 import 'package:pocket_telematics/Methods/reset_function.dart';
 
@@ -28,13 +27,15 @@ void periodic() {
       //every time the vehicle is considered to have stopped a save model is created
       //if the stopping time reaches two minutes (as per now) that save model will be stored
       //and the two minute stopping data is not going to be included
-      saveModel = SaveModel(
+      saveModel = DrivingTrackingModel(
+        startDate: recordStartTime.toString().substring(0, 16),
+        endDate: recordEndTime.toString().substring(0, 16),
         velocityData: listDoubleToString(velocityList.map((e) => e[1]).toList()),
         angleList: listDoubleToString(angleList),
         accelerationList: listDoubleToString(accelerationList),
         polylineList: latlngListToString(polylineList),
         drivingSummary: directionContent.join(","),
-        bottomInfoText: bottomInfoText,
+        overallStats: bottomInfoText,
         grade: (grade / 10).toString(),
       );
       recordEndTime = DateTime.now();
@@ -42,20 +43,7 @@ void periodic() {
 
     //once driving is not detected for two minutes - the driving data is stored
     else if (notDrivingTime > 120 && recordingStarted) {
-      database.then((db) async {
-        await db.transaction((txn) async {
-          String date = "${recordStartTime.toString().substring(0, 16)} - ${recordEndTime.toString().substring(0, 16)}";
-          await txn.rawInsert(
-              'INSERT INTO data (date, velocityData, angleList, accelerationList, polylineList, drivingSummary, bottomInfo, grade) VALUES ("$date", "${saveModel.velocityData}", "${saveModel.angleList}", "${saveModel.accelerationList}", "${saveModel.polylineList}", "${saveModel.drivingSummary}", "${saveModel.bottomInfoText}", "${saveModel.grade}")');
-        });
-        //the periodic interval is set back to once a day to maintain ram
-        activePeriodic = false;
-      });
-
-      log(saveModel.drivingSummary);
-      log(saveModel.bottomInfoText);
-      log(saveModel.grade);
-
+      addDrivingData(saveModel);
       //initialize the background task notification to new condition
       FlutterBackground.initialize(
         androidConfig: const FlutterBackgroundAndroidConfig(

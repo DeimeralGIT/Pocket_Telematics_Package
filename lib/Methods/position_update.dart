@@ -6,8 +6,8 @@ import 'package:pocket_telematics/Methods/reset_function.dart';
 import '../global_values.dart';
 import 'data_processing.dart';
 
-void positionUpdate(Position _position) {
-  position = _position;
+void positionUpdate(Position newPosition) {
+  position = newPosition;
   if (!initialPositionAvailable) {
     Geolocator.getCurrentPosition().then((value) {
       initialPosition = value;

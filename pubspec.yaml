@@ -16,10 +16,8 @@ dependencies:
   
   # provides background process compatibility (IMPORTANT: background usage needs to be configured separately in the app for different platforms)
   flutter_background: ^1.1.0
-  # flutter port of SQLite
-  sqflite: 
   # grants access to app data directory
-  path:
+  path_provider: ^2.0.10
   # provides current gps/network location
   geolocator: ^8.0.1
   # for storing a polyline data with <LatLng> type
