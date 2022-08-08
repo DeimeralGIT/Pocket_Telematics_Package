@@ -9,6 +9,7 @@ import 'package:pocket_telematics/Methods/position_update.dart';
 import 'package:pocket_telematics/global_values.dart';
 
 class PocketTelematics {
+  bool isServiceOn = false;
   requestService() async {
     await Geolocator.requestPermission().then((pass) {
       //initial notification status + request permission

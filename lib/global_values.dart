@@ -2,8 +2,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pocket_telematics/Data/driving_tracking_model.dart';
 
-bool isServiceOn = false;
-
 //{[time, position]}
 Set<List<double>> velocityList = {};
 //trajectory points
