@@ -67,6 +67,7 @@ List<double> velocityChain = [];
 DrivingTrackingModel saveModel = DrivingTrackingModel(
   startDate: "",
   endDate: "",
+  distance: distance,
   velocityData: "",
   angleList: "",
   accelerationList: "",

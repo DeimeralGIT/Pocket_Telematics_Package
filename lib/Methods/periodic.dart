@@ -30,6 +30,7 @@ void periodic() {
       saveModel = DrivingTrackingModel(
         startDate: recordStartTime.toString().substring(0, 16),
         endDate: recordEndTime.toString().substring(0, 16),
+        distance: distance,
         velocityData: listDoubleToString(velocityList.map((e) => e[1]).toList()),
         angleList: listDoubleToString(angleList),
         accelerationList: listDoubleToString(accelerationList),

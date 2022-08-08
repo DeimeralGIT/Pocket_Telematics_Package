@@ -5,6 +5,7 @@ class DrivingTrackingModel extends DrivingTrackingEntity {
   DrivingTrackingModel({
     required startDate,
     required endDate,
+    required distance,
     required velocityData,
     required angleList,
     required accelerationList,
@@ -15,6 +16,7 @@ class DrivingTrackingModel extends DrivingTrackingEntity {
   }) : super(
           startDate: startDate,
           endDate: endDate,
+          distance: distance,
           velocityData: velocityData,
           angleList: angleList,
           accelerationList: accelerationList,
@@ -28,6 +30,7 @@ class DrivingTrackingModel extends DrivingTrackingEntity {
     return DrivingTrackingModel(
       startDate: json["start_date"],
       endDate: json["end_date"],
+      distance: json["distance"],
       velocityData: json["velocity_data"],
       angleList: json["angle_list"],
       accelerationList: json["acceleration_list"],

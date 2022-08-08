@@ -1,6 +1,7 @@
 class DrivingTrackingEntity {
   final String startDate;
   final String endDate;
+  final String distance;
   final String velocityData;
   final String angleList;
   final String accelerationList;
@@ -11,6 +12,7 @@ class DrivingTrackingEntity {
   DrivingTrackingEntity({
     required this.startDate,
     required this.endDate,
+    required this.distance,
     required this.velocityData,
     required this.angleList,
     required this.accelerationList,
@@ -24,6 +26,7 @@ class DrivingTrackingEntity {
   List<Object?> get props => [
         startDate,
         endDate,
+        distance,
         velocityData,
         angleList,
         accelerationList,
