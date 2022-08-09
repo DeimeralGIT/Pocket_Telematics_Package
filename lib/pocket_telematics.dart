@@ -14,9 +14,13 @@ class PocketTelematics {
   Future<bool> requestService() async => Permission.locationWhenInUse.request().then(
         (locWhenInUse) => Permission.locationAlways.request().then((locAlways) {
           log("checking battery permission, options: ${locAlways.isGranted}");
+          if (locAlways.isGranted) {
+            try {
+              _startBackgroundService();
+            } catch (e) {}
+          }
           return locAlways.isGranted
               ? Permission.ignoreBatteryOptimizations.request().then((batteryPermission) {
-                  log(batteryPermission.isGranted.toString());
                   return batteryPermission.isGranted ? _startBackgroundService() : checkPermissions();
                 })
               : checkPermissions();
