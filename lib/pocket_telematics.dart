@@ -1,6 +1,7 @@
 library pocket_telematics;
 
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter_background/flutter_background.dart';
 import 'package:geolocator/geolocator.dart';
@@ -37,6 +38,8 @@ class PocketTelematics {
                     });
                   });
                 });
+                log(locAlways.isGranted.toString());
+                log(batteryOptimisation.isGranted.toString());
                 return locAlways.isGranted && batteryOptimisation.isGranted;
               }),
             ),
