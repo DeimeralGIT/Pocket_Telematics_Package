@@ -2,6 +2,7 @@ library pocket_telematics;
 
 import 'dart:async';
 import 'dart:developer';
+import 'package:flutter/services.dart';
 import 'package:flutter_background/flutter_background.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -28,14 +29,13 @@ class PocketTelematics {
 
   Future<bool> _startBackgroundService() {
     //initial notification status + request permission
-    return FlutterBackground.initialize(
+    return initialize(
       androidConfig: const FlutterBackgroundAndroidConfig(
         notificationTitle: "Not driving",
         notificationText: "Driving tracking",
         notificationImportance: AndroidNotificationImportance.Default,
       ),
     ).then((flutterBackInitialized) {
-      log("are you sure it returns true ever?");
       return flutterBackInitialized
           ? FlutterBackground.enableBackgroundExecution().then(
               (pass) {
@@ -58,5 +58,32 @@ class PocketTelematics {
             )
           : checkPermissions();
     });
+  }
+
+  Future<bool> initialize({FlutterBackgroundAndroidConfig androidConfig = const FlutterBackgroundAndroidConfig()}) async {
+    log("Checking initialized");
+    bool initialized = await MethodChannel('flutter_background').invokeMethod<bool>('initialize', {
+          'android.notificationTitle': androidConfig.notificationTitle,
+          'android.notificationText': androidConfig.notificationText,
+          'android.notificationImportance': _androidNotificationImportanceToInt(androidConfig.notificationImportance),
+          'android.notificationIconName': androidConfig.notificationIcon.name,
+          'android.notificationIconDefType': androidConfig.notificationIcon.defType,
+          'android.enableWifiLock': androidConfig.enableWifiLock,
+        }) ==
+        true;
+    log("initialized says $initialized");
+    return initialized;
+  }
+
+  int _androidNotificationImportanceToInt(AndroidNotificationImportance importance) {
+    switch (importance) {
+      case AndroidNotificationImportance.High:
+        return 1;
+      case AndroidNotificationImportance.Max:
+        return 2;
+      case AndroidNotificationImportance.Default:
+      default:
+        return 0;
+    }
   }
 }
