@@ -16,7 +16,7 @@ class FlutterBackground {
   /// Returns true, if the user grants the permissions, otherwise false.
   /// May throw a [PlatformException].
 
-  Future<bool> initialize({FlutterBackgroundAndroidConfig androidConfig = const FlutterBackgroundAndroidConfig()}) async =>
+  static Future<bool> initialize({FlutterBackgroundAndroidConfig androidConfig = const FlutterBackgroundAndroidConfig()}) async =>
       const MethodChannel('flutter_background').invokeMethod<bool>('initialize', {
         'android.notificationTitle': androidConfig.notificationTitle,
         'android.notificationText': androidConfig.notificationText,
@@ -29,7 +29,7 @@ class FlutterBackground {
         return value == true;
       });
 
-  int _androidNotificationImportanceToInt(AndroidNotificationImportance importance) {
+  static int _androidNotificationImportanceToInt(AndroidNotificationImportance importance) {
     switch (importance) {
       case AndroidNotificationImportance.High:
         return 1;

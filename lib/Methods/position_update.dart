@@ -1,7 +1,8 @@
-import 'package:flutter_background/flutter_background.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:pocket_telematics/Methods/caclulations.dart';
 import 'package:pocket_telematics/Methods/reset_function.dart';
+import 'package:pocket_telematics/background_manager/android_config.dart';
+import 'package:pocket_telematics/background_manager/flutter_background.dart';
 
 import '../global_values.dart';
 import 'data_processing.dart';
