@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 import 'package:flutter/services.dart';
-import 'package:flutter_background/src/android_config.dart';
+import 'package:pocket_telematics/background_manager/android_config.dart';
 
 class FlutterBackground {
   static const MethodChannel _channel = MethodChannel('flutter_background');
