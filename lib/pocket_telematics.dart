@@ -60,20 +60,18 @@ class PocketTelematics {
     });
   }
 
-  Future<bool> initialize({FlutterBackgroundAndroidConfig androidConfig = const FlutterBackgroundAndroidConfig()}) async {
-    log("Checking initialized");
-    bool initialized = await MethodChannel('flutter_background').invokeMethod<bool>('initialize', {
-          'android.notificationTitle': androidConfig.notificationTitle,
-          'android.notificationText': androidConfig.notificationText,
-          'android.notificationImportance': _androidNotificationImportanceToInt(androidConfig.notificationImportance),
-          'android.notificationIconName': androidConfig.notificationIcon.name,
-          'android.notificationIconDefType': androidConfig.notificationIcon.defType,
-          'android.enableWifiLock': androidConfig.enableWifiLock,
-        }) ==
-        true;
-    log("initialized says $initialized");
-    return initialized;
-  }
+  Future<bool> initialize({FlutterBackgroundAndroidConfig androidConfig = const FlutterBackgroundAndroidConfig()}) async =>
+      const MethodChannel('flutter_background').invokeMethod<bool>('initialize', {
+        'android.notificationTitle': androidConfig.notificationTitle,
+        'android.notificationText': androidConfig.notificationText,
+        'android.notificationImportance': _androidNotificationImportanceToInt(androidConfig.notificationImportance),
+        'android.notificationIconName': androidConfig.notificationIcon.name,
+        'android.notificationIconDefType': androidConfig.notificationIcon.defType,
+        'android.enableWifiLock': androidConfig.enableWifiLock,
+      }).then((value) {
+        log("new way of doing it returns $value");
+        return value == true;
+      });
 
   int _androidNotificationImportanceToInt(AndroidNotificationImportance importance) {
     switch (importance) {
