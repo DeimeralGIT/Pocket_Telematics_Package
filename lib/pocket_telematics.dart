@@ -13,6 +13,7 @@ import 'package:pocket_telematics/global_values.dart';
 class PocketTelematics {
   Future<bool> requestService() async => Permission.locationWhenInUse.request().then(
         (locWhenInUse) => Permission.locationAlways.request().then((locAlways) {
+          log("checking battery permission, options: ${locAlways.isGranted}");
           return locAlways.isGranted
               ? Permission.ignoreBatteryOptimizations.request().then((batteryPermission) {
                   log(batteryPermission.isGranted.toString());
