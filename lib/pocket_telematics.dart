@@ -1,7 +1,6 @@
 library pocket_telematics;
 
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter_background/flutter_background.dart';
 import 'package:geolocator/geolocator.dart';
@@ -49,6 +48,6 @@ class PocketTelematics {
     } catch (e) {}
   }
 
-  Future<bool> checkPermissions() async => Permission.ignoreBatteryOptimizations.isGranted
-      .then((batteryPermission) => Permission.locationAlways.isGranted.then((locationPermission) => batteryPermission && locationPermission));
+  Future<bool> checkPermissions() async =>
+      Permission.locationAlways.isGranted.then((locationPermission) => locationPermission && FlutterBackground.isBackgroundExecutionEnabled);
 }
