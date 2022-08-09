@@ -26,7 +26,8 @@ class FlutterBackground {
         'android.enableWifiLock': androidConfig.enableWifiLock,
       }).then((value) {
         log("new way of doing it returns $value");
-        return value == true;
+        _isInitialized = value == true;
+        return _isInitialized;
       });
 
   static int _androidNotificationImportanceToInt(AndroidNotificationImportance importance) {
