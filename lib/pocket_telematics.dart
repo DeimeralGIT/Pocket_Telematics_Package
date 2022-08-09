@@ -1,8 +1,6 @@
 library pocket_telematics;
 
 import 'dart:async';
-import 'dart:developer';
-
 import 'package:flutter_background/flutter_background.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -13,12 +11,7 @@ import 'package:pocket_telematics/global_values.dart';
 class PocketTelematics {
   Future<bool> requestService() async => Permission.locationWhenInUse.request().then(
         (locWhenInUse) => Permission.locationAlways.request().then((locAlways) {
-          log("checking battery permission, options: ${locAlways.isGranted}");
-          return locAlways.isGranted
-              ? Permission.ignoreBatteryOptimizations.request().whenComplete(checkPermissions).isGranted.then((batteryPermission) {
-                  return batteryPermission ? _startBackgroundService() : checkPermissions();
-                })
-              : checkPermissions();
+          return locAlways.isGranted ? _startBackgroundService() : checkPermissions();
         }),
       );
 
