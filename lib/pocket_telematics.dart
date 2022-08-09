@@ -1,6 +1,7 @@
 library pocket_telematics;
 
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter_background/flutter_background.dart';
 import 'package:geolocator/geolocator.dart';
@@ -20,6 +21,7 @@ class PocketTelematics {
                 notificationImportance: AndroidNotificationImportance.Default,
               ),
             ).then((result) {
+              log(result.toString());
               result
                   ? FlutterBackground.enableBackgroundExecution().then((pass) {
                       //triggers on every GPS location update
