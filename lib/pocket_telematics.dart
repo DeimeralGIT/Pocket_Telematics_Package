@@ -20,7 +20,7 @@ class PocketTelematics {
                 notificationImportance: AndroidNotificationImportance.Default,
               ),
             ).then((result) {
-              result && locAlways.isGranted
+              result
                   ? FlutterBackground.enableBackgroundExecution().then((pass) {
                       //triggers on every GPS location update
                       positionStream = Geolocator.getPositionStream(
