@@ -23,6 +23,7 @@ class PocketTelematics {
                 ),
               ).then(
                 (flutterBackInitialized) {
+                  log(flutterBackInitialized.toString());
                   return flutterBackInitialized
                       ? FlutterBackground.enableBackgroundExecution().then(
                           (pass) {
