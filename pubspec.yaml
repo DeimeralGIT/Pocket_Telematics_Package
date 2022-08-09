@@ -14,8 +14,6 @@ dependencies:
   # grants access to device sensors (GPS for current package)
   sensors: '>=0.4.2+5 <2.0.0'
   
-  # provides background process compatibility (IMPORTANT: background usage needs to be configured separately in the app for different platforms)
-  flutter_background: ^1.1.0
   # grants access to app data directory
   path_provider: ^2.0.10
   # provides current gps/network location

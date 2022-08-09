@@ -29,7 +29,7 @@ class PocketTelematics {
 
   Future<bool> _startBackgroundService() {
     //initial notification status + request permission
-    return initialize(
+    return FlutterBackground.initialize(
       androidConfig: const FlutterBackgroundAndroidConfig(
         notificationTitle: "Not driving",
         notificationText: "Driving tracking",
@@ -58,30 +58,5 @@ class PocketTelematics {
             )
           : checkPermissions();
     });
-  }
-
-  Future<bool> initialize({FlutterBackgroundAndroidConfig androidConfig = const FlutterBackgroundAndroidConfig()}) async =>
-      const MethodChannel('flutter_background').invokeMethod<bool>('initialize', {
-        'android.notificationTitle': androidConfig.notificationTitle,
-        'android.notificationText': androidConfig.notificationText,
-        'android.notificationImportance': _androidNotificationImportanceToInt(androidConfig.notificationImportance),
-        'android.notificationIconName': androidConfig.notificationIcon.name,
-        'android.notificationIconDefType': androidConfig.notificationIcon.defType,
-        'android.enableWifiLock': androidConfig.enableWifiLock,
-      }).then((value) {
-        log("new way of doing it returns $value");
-        return value == true;
-      });
-
-  int _androidNotificationImportanceToInt(AndroidNotificationImportance importance) {
-    switch (importance) {
-      case AndroidNotificationImportance.High:
-        return 1;
-      case AndroidNotificationImportance.Max:
-        return 2;
-      case AndroidNotificationImportance.Default:
-      default:
-        return 0;
-    }
   }
 }
