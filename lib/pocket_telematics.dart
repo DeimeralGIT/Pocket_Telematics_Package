@@ -20,9 +20,9 @@ class PocketTelematics {
                 notificationText: "Driving tracking",
                 notificationImportance: AndroidNotificationImportance.Default,
               ),
-            ).then((result) {
-              log(result.toString());
-              result
+            ).then((flutterBackInitialized) {
+              log(flutterBackInitialized.toString());
+              flutterBackInitialized
                   ? FlutterBackground.enableBackgroundExecution().then((pass) {
                       //triggers on every GPS location update
                       positionStream = Geolocator.getPositionStream(
@@ -41,7 +41,7 @@ class PocketTelematics {
                       return locAlways.isGranted;
                     })
                   : false;
-              return false;
+              throw false;
             })),
       );
 
