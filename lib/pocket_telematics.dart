@@ -38,6 +38,8 @@ class PocketTelematics {
                     });
                   });
                 });
+                log(locAlways.isGranted.toString());
+                log(batteryOptimisation.isDenied.toString());
                 return locAlways.isGranted && batteryOptimisation.isDenied;
               }),
             ),
