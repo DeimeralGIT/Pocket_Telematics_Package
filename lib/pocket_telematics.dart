@@ -11,9 +11,7 @@ import 'package:pocket_telematics/global_values.dart';
 
 class PocketTelematics {
   requestService() async {
-    Permission.locationAlways.request().then((pass) {
-      Permission.ignoreBatteryOptimizations.request();
-    });
+    Permission.locationAlways.request().then((pass) {});
     //initial notification status + request permission
     FlutterBackground.initialize(
       androidConfig: const FlutterBackgroundAndroidConfig(
@@ -21,7 +19,9 @@ class PocketTelematics {
         notificationText: "Driving tracking",
         notificationImportance: AndroidNotificationImportance.Default,
       ),
-    ).then((result) => FlutterBackground.enableBackgroundExecution().then((pass) {
+    ).then((result) {
+      Permission.ignoreBatteryOptimizations.request().then((value) {
+        FlutterBackground.enableBackgroundExecution().then((pass) {
           //triggers on every GPS location update
           positionStream = Geolocator.getPositionStream(
               locationSettings: const LocationSettings(
@@ -35,7 +35,9 @@ class PocketTelematics {
               periodic();
             }
           });
-        }));
+        });
+      });
+    });
   }
 
   terminateService() async {
