@@ -49,4 +49,7 @@ class PocketTelematics {
       positionStream.cancel();
     } catch (e) {}
   }
+
+  Future<bool> checkPermissions() async => Permission.ignoreBatteryOptimizations.isGranted
+      .then((batteryPermission) => Permission.locationAlways.isGranted.then((locationPermission) => batteryPermission && locationPermission));
 }
