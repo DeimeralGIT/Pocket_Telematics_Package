@@ -1,6 +1,7 @@
 library pocket_telematics;
 
 import 'dart:async';
+import 'dart:developer';
 import 'package:flutter_background/flutter_background.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -34,6 +35,7 @@ class PocketTelematics {
         notificationImportance: AndroidNotificationImportance.Default,
       ),
     ).then((flutterBackInitialized) {
+      log("are you sure it returns true ever?");
       return flutterBackInitialized
           ? FlutterBackground.enableBackgroundExecution().then(
               (pass) {
