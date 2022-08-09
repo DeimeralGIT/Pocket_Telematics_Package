@@ -37,7 +37,7 @@ class PocketTelematics {
                     });
                   });
                 });
-                return locWhenInUse.isGranted && locAlways.isGranted && batteryOptimisation.isGranted;
+                return locAlways.isGranted && batteryOptimisation.isGranted;
               }),
             ),
       );
