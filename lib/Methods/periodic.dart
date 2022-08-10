@@ -34,7 +34,7 @@ void periodic() {
         angleList: listDoubleToString(angleList),
         accelerationList: listDoubleToString(accelerationList),
         polylineList: latlngListToString(polylineList),
-        drivingSummary: directionContent.join(","),
+        drivingSummary: directionContent.join("\n"),
         overallStats: bottomInfoText,
         grade: (grade / 10).toString(),
       );
