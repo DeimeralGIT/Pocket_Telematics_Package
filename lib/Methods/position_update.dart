@@ -33,7 +33,7 @@ void positionUpdate(Position newPosition) {
               notificationTitle: "Driving detected",
               notificationText: "Driving tracking",
               notificationImportance: AndroidNotificationImportance.Default,
-              notificationIcon: AndroidResource(name: "ic_launcher.png"),
+              notificationIcon: AndroidResource(name: "ic_launcher"),
               enableWifiLock: true,
             ),
           ).then(
