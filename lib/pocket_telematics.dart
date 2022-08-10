@@ -34,29 +34,27 @@ class PocketTelematics {
         notificationImportance: AndroidNotificationImportance.Default,
       ),
     ).then((flutterBackInitialized) {
-      try {
-        return FlutterBackground.enableBackgroundExecution().then(
-          (pass) {
-            //triggers on every GPS location update
-            positionStream = Geolocator.getPositionStream(
-                locationSettings: const LocationSettings(
-              accuracy: LocationAccuracy.bestForNavigation,
-            )).listen((position) => positionUpdate(position));
+      return flutterBackInitialized
+          ? FlutterBackground.enableBackgroundExecution().then(
+              (pass) {
+                //triggers on every GPS location update
+                positionStream = Geolocator.getPositionStream(
+                    locationSettings: const LocationSettings(
+                  accuracy: LocationAccuracy.bestForNavigation,
+                )).listen((position) => positionUpdate(position));
 
-            //Periodic function is for time-depending calculations
-            Timer.periodic(const Duration(milliseconds: 100), (t) {
-              //function is required only when driving is detected
-              if (activePeriodic) {
-                periodic();
-              }
-            });
+                //Periodic function is for time-depending calculations
+                Timer.periodic(const Duration(milliseconds: 100), (t) {
+                  //function is required only when driving is detected
+                  if (activePeriodic) {
+                    periodic();
+                  }
+                });
 
-            return true;
-          },
-        );
-      } catch (e) {
-        return false;
-      }
+                return true;
+              },
+            )
+          : checkPermissions();
     });
   }
 }
