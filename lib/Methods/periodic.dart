@@ -1,14 +1,12 @@
+import 'package:flutter_background/flutter_background.dart';
 import 'package:pocket_telematics/Data/data_manager.dart';
 import 'package:pocket_telematics/Data/driving_tracking_model.dart';
 import 'package:pocket_telematics/Methods/reset_function.dart';
-import 'package:pocket_telematics/background_manager/android_config.dart';
-import 'package:pocket_telematics/background_manager/flutter_background.dart';
-
 import '../global_values.dart';
 import 'caclulations.dart';
 import 'update_driving_summary.dart';
 
-//this code is responsible for updating the UI, make estimations that depend on time and manage data storage
+//this code is responsible for making estimations that depend on time and managing data storage
 
 void periodic() {
   timer += 10;

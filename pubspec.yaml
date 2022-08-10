@@ -1,5 +1,6 @@
 name: pocket_telematics
 description: A new Flutter package project.
+publish_to: none
 version: 0.0.1
 homepage: https://github.com/DeimeralGIT/Pocket_Telematics_Package
 
@@ -21,6 +22,10 @@ dependencies:
   google_maps_flutter: ^2.1.1
   # allows to request multiple permissions at once and handle user choices
   permission_handler: ^10.0.0
+  # background service management
+  flutter_background:
+    git:
+      url: https://github.com/DeimeralGIT/flutter_background
 
 dev_dependencies:
   flutter_test:

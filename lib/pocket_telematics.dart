@@ -5,9 +5,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:pocket_telematics/Methods/periodic.dart';
 import 'package:pocket_telematics/Methods/position_update.dart';
-import 'package:pocket_telematics/background_manager/android_config.dart';
-import 'package:pocket_telematics/background_manager/flutter_background.dart';
 import 'package:pocket_telematics/global_values.dart';
+import 'package:flutter_background/flutter_background.dart';
 
 class PocketTelematics {
   Future<bool> requestService() async => Permission.locationWhenInUse.request().then(
