@@ -33,6 +33,8 @@ void positionUpdate(Position newPosition) {
               notificationTitle: "Driving detected",
               notificationText: "Driving tracking",
               notificationImportance: AndroidNotificationImportance.Default,
+              notificationIcon: AndroidResource(name: "ic_launcher.png"),
+              enableWifiLock: true,
             ),
           ).then(
             (value) => FlutterBackground.enableBackgroundExecution(),
