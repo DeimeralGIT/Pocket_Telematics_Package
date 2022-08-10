@@ -63,7 +63,7 @@
     },
     {
       "name": "flutter_background",
-      "rootUri": "file:///C:/Users/Vahan/Desktop/Flutter%20Lib/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_background-1.1.0",
+      "rootUri": "file:///C:/Users/Vahan/Desktop/Flutter%20Lib/flutter/.pub-cache/git/flutter_background-3f48aec4ef1329e5ae3544d908f3c01c42bf28a4/",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -344,7 +344,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-08-10T07:51:03.409839Z",
+  "generated": "2022-08-10T08:00:16.726986Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }
