@@ -74,7 +74,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "3f48aec4ef1329e5ae3544d908f3c01c42bf28a4"
+      resolved-ref: "354d6f39a743feda65b5d41b1cfd940e0510e704"
       url: "https://github.com/DeimeralGIT/flutter_background"
     source: git
     version: "1.1.0"
