@@ -32,6 +32,7 @@ class PocketTelematics {
         notificationTitle: "Not driving",
         notificationText: "Driving tracking",
         notificationImportance: AndroidNotificationImportance.Default,
+        enableWifiLock: true,
       ),
     ).then((flutterBackInitialized) {
       return flutterBackInitialized
