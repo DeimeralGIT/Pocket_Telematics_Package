@@ -63,7 +63,7 @@
     },
     {
       "name": "flutter_background",
-      "rootUri": "file:///C:/Users/Vahan/Desktop/Flutter%20Lib/flutter/.pub-cache/git/flutter_background-d96c64bc6e6c6b7579308f9af971dd687efd9123/",
+      "rootUri": "file:///C:/Users/Vahan/Desktop/Flutter%20Lib/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_background-1.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -183,7 +183,7 @@
     },
     {
       "name": "path_provider_android",
-      "rootUri": "file:///C:/Users/Vahan/Desktop/Flutter%20Lib/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_android-2.0.17",
+      "rootUri": "file:///C:/Users/Vahan/Desktop/Flutter%20Lib/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_android-2.0.18",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -344,7 +344,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-08-10T09:04:53.680529Z",
+  "generated": "2022-08-11T08:41:24.748699Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }

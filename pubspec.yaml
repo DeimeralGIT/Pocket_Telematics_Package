@@ -23,9 +23,7 @@ dependencies:
   # allows to request multiple permissions at once and handle user choices
   permission_handler: ^10.0.0
   # background service management
-  flutter_background:
-    git:
-      url: https://github.com/DeimeralGIT/flutter_background
+  flutter_background: ^1.1.0
 
 dev_dependencies:
   flutter_test:
