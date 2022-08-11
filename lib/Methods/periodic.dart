@@ -42,8 +42,9 @@ void periodic() {
     }
 
     //once driving is not detected for two minutes - the driving data is stored
-    else if (notDrivingTime > 120 && recordingStarted) {
-      addDrivingData(saveModel);
+    else if (notDrivingTime > 180 && recordingStarted) {
+      //if during the entire route the maximum speed has been below 30 it was probably not a vehicle
+      if (highestVelocity >= 30) addDrivingData(saveModel);
       //initialize the background task notification to new condition
       FlutterBackground.initialize(
         androidConfig: const FlutterBackgroundAndroidConfig(
