@@ -50,7 +50,6 @@ void periodic() {
           notificationTitle: "Not driving",
           notificationText: "Driving tracking",
           notificationImportance: AndroidNotificationImportance.Default,
-          notificationIcon: AndroidResource(name: "ic_launcher.png"),
           enableWifiLock: true,
         ),
       ).then(

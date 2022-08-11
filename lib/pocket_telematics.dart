@@ -32,7 +32,6 @@ class PocketTelematics {
         notificationTitle: "Not driving",
         notificationText: "Driving tracking",
         notificationImportance: AndroidNotificationImportance.Default,
-        notificationIcon: AndroidResource(name: "ic_launcher", defType: 'mipmap'),
         enableWifiLock: true,
       ),
     ).then((flutterBackInitialized) {
